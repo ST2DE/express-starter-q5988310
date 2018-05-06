@@ -1,0 +1,19 @@
+DOCTYPE
+html
+    head
+        title ToDO List    
+    body
+        div
+            h1 ToDO List
+            form(action="/addTask" method="post")
+                div
+                    input(type="text" name="task")
+                    button(type="submit") Add
+            hr
+            div
+                ul
+                -   tasks.forEach(function(task){ 
+                        li #{task.id} . #{task.title} 
+                        br
+                -   });
+                
