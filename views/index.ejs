@@ -1,25 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>ToDO List</title>    
-    </head>
-    <body>
-        <div>
-            <h1>ToDO List</h1>
-            <form action="/addTask" method="post">
-                <div>
-                    <input type="text" name="task">
-                </div>
-                <button type="submit">Add</button>
-            </form>
-            <hr>
-            <div>
-                <ul>
-                    <% tasks.forEach(function(task) { %>
-                    <li><%= task.id %>. <%= task.title %></li><br>
-                    <% }); %>
-                </ul>	
-            </div>
-        </div>
-    </body>
-</html> 
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="/index.css" />
+      <title>
+         To-do List
+      </title>
+   </head>
+   <body>    
+        
+        <form action="/addTask" method="post">
+            <input id="input"  type="text" name="task" placeholder="What needs to be done?">                               
+        </form>   
+        
+        <ul id="list">
+            <% tasks.forEach(function(task) { %>
+            <li><a href="/tasks/delete/?id=<%= task.id%>"><%= task.title %></a></li><br>
+            <% }); %>
+        </ul>	
+        <form action="/logout" method="POST" >
+			<button type="submit">LOGOUT</button>
+		</form>
+   </body>
+</html>
